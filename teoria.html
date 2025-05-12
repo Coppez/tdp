@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="it" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria della Patente - Educazione Stradale</title>
+    <!-- Bootstrap CSS (Replit theme) -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <i class="fas fa-car-side me-2"></i>Educazione Stradale
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('teoria') }}">Teoria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('quiz') }}">Quiz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-5">
+            <header class="text-center mb-5">
+                <h1 class="display-4">Guida alla Teoria della Patente</h1>
+                <p class="lead">Tutto ciò che devi sapere per superare l'esame teorico della patente di categoria B</p>
+            </header>
+
+            <section id="overview" class="mb-5">
+                <h2 class="border-bottom pb-2 mb-4">Panoramica dell'Esame Teorico</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <p>L'esame teorico per la patente B consiste in un quiz a risposta multipla composto da 30 domande, alle quali bisogna rispondere entro 30 minuti. Per superare l'esame è necessario commettere al massimo 3 errori.</p>
+                        <p>Gli argomenti trattati nell'esame riguardano:</p>
+                        <ul>
+                            <li>Segnaletica stradale</li>
+                            <li>Norme di comportamento</li>
+                            <li>Limiti di velocità</li>
+                            <li>Precedenze</li>
+                            <li>Documenti necessari per la guida</li>
+                            <li>Assicurazione e responsabilità civile</li>
+                            <li>Norme di sicurezza e comportamento in caso di emergenza</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Requisiti per l'Esame</h5>
+                                <ul class="card-text">
+                                    <li>Età minima: 18 anni</li>
+                                    <li>Certificato medico di idoneità</li>
+                                    <li>Documento d'identità valido</li>
+                                    <li>Codice fiscale</li>
+                                    <li>Attestazione del pagamento delle tasse</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="segnali" class="mb-5">
+                <h2 class="border-bottom pb-2 mb-4">Tipologie di Segnali Stradali</h2>
+
+                <article class="mb-4">
+                    <h3>Segnali di Pericolo</h3>
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>I segnali di pericolo hanno forma triangolare con bordo rosso e sfondo bianco. Avvertono l'utente della strada di un pericolo e lo invitano ad adottare una particolare prudenza. Sono posti, di norma, a 150 metri dal pericolo.</p>
+                            <p>Alcuni esempi comuni di segnali di pericolo sono:</p>
+                            <ul>
+                                <li>Curva pericolosa</li>
+                                <li>Strada sdrucciolevole</li>
+                                <li>Attraversamento pedonale</li>
+                                <li>Bambini</li>
+                                <li>Lavori in corso</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <figure class="text-center">
+                                <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
+                                    <path d="M100,10 L10,170 H190 z" fill="white" stroke="red" stroke-width="10"/>
+                                    <path d="M85,50 C85,50 60,100 85,150 C110,100 85,50 85,50 z" stroke="black" stroke-width="8" fill="none"/>
+                                    <path d="M115,50 C115,50 140,100 115,150 C90,100 115,50 115,50 z" stroke="black" stroke-width="8" fill="none"/>
+                                </svg>
+                                <figcaption class="mt-2">Segnale di pericolo: Doppia curva</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mb-4">
+                    <h3>Segnali di Prescrizione</h3>
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>I segnali di prescrizione impongono obblighi, divieti o limitazioni. Si suddividono in:</p>
+                            <ul>
+                                <li><strong>Segnali di precedenza</strong>: regolano il diritto di precedenza negli incroci e nelle strettoie (es. dare precedenza, stop)</li>
+                                <li><strong>Segnali di divieto</strong>: forma circolare, bordo rosso e sfondo bianco. Vietano determinati comportamenti (es. divieto di sorpasso, divieto di sosta)</li>
+                                <li><strong>Segnali di obbligo</strong>: forma circolare, bordo e sfondo blu. Impongono determinati comportamenti (es. direzione obbligatoria, obbligo di catene da neve)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <figure class="text-center">
+                                <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="white" stroke="red" stroke-width="10"/>
+                                    <rect x="30" y="90" width="140" height="20" fill="red"/>
+                                </svg>
+                                <figcaption class="mt-2">Segnale di divieto: Divieto di accesso</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mb-4">
+                    <h3>Segnali di Indicazione</h3>
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>I segnali di indicazione forniscono informazioni utili per la guida. Hanno generalmente forma quadrata o rettangolare e colore variabile (blu, verde, bianco, marrone, nero). Esempi comuni sono:</p>
+                            <ul>
+                                <li>Indicazioni di località</li>
+                                <li>Indicazioni turistiche</li>
+                                <li>Segnali di preavviso e direzione</li>
+                                <li>Attraversamento pedonale</li>
+                                <li>Parcheggio</li>
+                                <li>Ospedale</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <figure class="text-center">
+                                <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                                    <rect x="10" y="10" width="180" height="180" fill="#0066CC" stroke="white" stroke-width="5"/>
+                                    <text x="100" y="110" font-family="Arial" font-size="140" font-weight="bold" fill="white" text-anchor="middle">P</text>
+                                </svg>
+                                <figcaption class="mt-2">Segnale di indicazione: Parcheggio</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mb-4">
+                    <h3>Segnaletica Orizzontale</h3>
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>La segnaletica orizzontale è costituita da strisce e altri segni sulla carreggiata. Ha la funzione di guidare e regolare il traffico. Include:</p>
+                            <ul>
+                                <li>Strisce longitudinali (di mezzeria, di corsia, di margine)</li>
+                                <li>Strisce trasversali (linee di arresto, attraversamenti pedonali)</li>
+                                <li>Frecce direzionali</li>
+                                <li>Iscrizioni e simboli sulla pavimentazione</li>
+                                <li>Strisce di delimitazione degli stalli di sosta</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <figure class="text-center">
+                                <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+                                    <rect x="0" y="0" width="300" height="150" fill="#444444"/>
+                                    <rect x="10" y="65" width="280" height="20" fill="white"/>
+                                    <rect x="10" y="25" width="40" height="10" fill="white"/>
+                                    <rect x="70" y="25" width="40" height="10" fill="white"/>
+                                    <rect x="130" y="25" width="40" height="10" fill="white"/>
+                                    <rect x="190" y="25" width="40" height="10" fill="white"/>
+                                    <rect x="250" y="25" width="40" height="10" fill="white"/>
+                                    <rect x="10" y="115" width="40" height="10" fill="white"/>
+                                    <rect x="70" y="115" width="40" height="10" fill="white"/>
+                                    <rect x="130" y="115" width="40" height="10" fill="white"/>
+                                    <rect x="190" y="115" width="40" height="10" fill="white"/>
+                                    <rect x="250" y="115" width="40" height="10" fill="white"/>
+                                </svg>
+                                <figcaption class="mt-2">Segnaletica orizzontale: linee continue e discontinue</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section id="divieti" class="mb-5">
+                <h2 class="border-bottom pb-2 mb-4">Divieti di Sosta e Fermata</h2>
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-8">
+                        <h3>Divieto di Sosta</h3>
+                        <p>Il divieto di sosta vieta la sosta, cioè la sospensione della marcia del veicolo protratta nel tempo, con possibilità di allontanamento del conducente. Il segnale è un cerchio bordato di rosso con una X blu al centro.</p>
+                        <p>Alcune situazioni comuni di divieto di sosta:</p>
+                        <ul>
+                            <li>In corrispondenza o in prossimità dei passaggi a livello</li>
+                            <li>Nei sottopassaggi e nelle gallerie</li>
+                            <li>Sui marciapiedi, salvo diversa segnalazione</li>
+                            <li>In corrispondenza di aree pedonali</li>
+                            <li>Nelle corsie riservate ai mezzi pubblici</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <figure class="text-center">
+                            <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" fill="white" stroke="red" stroke-width="10"/>
+                                <line x1="50" y1="50" x2="150" y2="150" stroke="#0066CC" stroke-width="20"/>
+                                <line x1="50" y1="150" x2="150" y2="50" stroke="#0066CC" stroke-width="20"/>
+                            </svg>
+                            <figcaption class="mt-2">Segnale di divieto di sosta</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3>Divieto di Fermata</h3>
+                        <p>Il divieto di fermata vieta qualsiasi arresto volontario del veicolo, anche momentaneo. È più restrittivo del divieto di sosta. Il segnale è simile al divieto di sosta ma con una barra orizzontale rossa al centro.</p>
+                        <p>Alcune situazioni tipiche di divieto di fermata:</p>
+                        <ul>
+                            <li>In prossimità o in corrispondenza di incroci</li>
+                            <li>In prossimità o in corrispondenza di passaggi a livello</li>
+                            <li>In prossimità o in corrispondenza di dossi, curve e passaggi stretti</li>
+                            <li>Nelle corsie di accelerazione e decelerazione</li>
+                            <li>Nelle zone di svincolo delle autostrade</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <figure class="text-center">
+                            <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" fill="white" stroke="red" stroke-width="10"/>
+                                <line x1="50" y1="100" x2="150" y2="100" stroke="red" stroke-width="20"/>
+                            </svg>
+                            <figcaption class="mt-2">Segnale di divieto di fermata</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section id="documenti" class="mb-5">
+                <h2 class="border-bottom pb-2 mb-4">Documenti e Assicurazione Obbligatoria</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>Documenti Obbligatori</h3>
+                        <p>Durante la guida è obbligatorio avere con sé i seguenti documenti:</p>
+                        <ul>
+                            <li><strong>Patente di guida</strong>: deve essere in corso di validità e della categoria corrispondente al veicolo guidato</li>
+                            <li><strong>Carta di circolazione</strong>: contiene i dati tecnici e di identificazione del veicolo</li>
+                            <li><strong>Certificato di assicurazione</strong>: attesta la copertura assicurativa del veicolo</li>
+                        </ul>
+                        
+                        <h3 class="mt-4">Assicurazione RC Auto</h3>
+                        <p>L'assicurazione di responsabilità civile (RC Auto) è obbligatoria per tutti i veicoli a motore. Copre i danni causati a terzi durante la circolazione. In caso di incidente:</p>
+                        <ul>
+                            <li>Bisogna scambiare i dati con l'altro conducente</li>
+                            <li>Compilare il modulo di constatazione amichevole (CID), se possibile</li>
+                            <li>Denunciare il sinistro alla propria compagnia assicurativa entro 3 giorni</li>
+                        </ul>
+                        
+                        <div class="alert alert-warning mt-4">
+                            <h4><i class="fas fa-exclamation-triangle me-2"></i>Attenzione</h4>
+                            <p>Circolare senza assicurazione comporta:</p>
+                            <ul>
+                                <li>Sanzione amministrativa da 866 a 3.464 euro</li>
+                                <li>Decurtazione di 5 punti dalla patente</li>
+                                <li>Sequestro del veicolo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card bg-dark mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Validità dei Documenti</h5>
+                                <ul class="card-text">
+                                    <li><strong>Patente B</strong>: 10 anni (fino a 50 anni di età); 5 anni (dai 50 ai 70 anni); 3 anni (dai 70 ai 80 anni); 2 anni (oltre gli 80 anni)</li>
+                                    <li><strong>Revisione veicolo</strong>: Prima revisione dopo 4 anni dalla prima immatricolazione, poi ogni 2 anni</li>
+                                    <li><strong>Assicurazione</strong>: Rinnovo annuale (o con durata stabilita nel contratto)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <figure class="text-center">
+                            <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+                                <rect x="10" y="10" width="380" height="230" rx="10" ry="10" fill="#f8f9fa" stroke="#6c757d" stroke-width="2"/>
+                                <rect x="20" y="20" width="100" height="70" rx="5" ry="5" fill="#e9ecef"/>
+                                <rect x="130" y="20" width="250" height="20" rx="2" ry="2" fill="#dee2e6"/>
+                                <rect x="130" y="50" width="200" height="15" rx="2" ry="2" fill="#dee2e6"/>
+                                <rect x="130" y="75" width="150" height="15" rx="2" ry="2" fill="#dee2e6"/>
+                                
+                                <line x1="20" y1="110" x2="370" y2="110" stroke="#6c757d" stroke-width="1"/>
+                                
+                                <rect x="20" y="130" width="150" height="15" rx="2" ry="2" fill="#dee2e6"/>
+                                <rect x="20" y="155" width="200" height="15" rx="2" ry="2" fill="#dee2e6"/>
+                                <rect x="20" y="180" width="250" height="15" rx="2" ry="2" fill="#dee2e6"/>
+                                <rect x="20" y="205" width="150" height="15" rx="2" ry="2" fill="#dee2e6"/>
+                            </svg>
+                            <figcaption class="mt-2">Carta di circolazione (esempio schematico)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section id="costi" class="mb-5">
+                <h2 class="border-bottom pb-2 mb-4">Prezzi e Tempi Medi per Ottenere la Patente</h2>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h3>Costi Medi</h3>
+                        <p>I costi per ottenere una patente di categoria B possono variare in base alla scuola guida e alla regione. Mediamente, è necessario considerare:</p>
+                        
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Voce di spesa</th>
+                                    <th>Costo indicativo (€)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Iscrizione a scuola guida</td>
+                                    <td>200-300</td>
+                                </tr>
+                                <tr>
+                                    <td>Certificato medico</td>
+                                    <td>30-50</td>
+                                </tr>
+                                <tr>
+                                    <td>Esame di teoria (tasse governative)</td>
+                                    <td>26</td>
+                                </tr>
+                                <tr>
+                                    <td>Guide pratiche (10-15 lezioni)</td>
+                                    <td>300-600</td>
+                                </tr>
+                                <tr>
+                                    <td>Esame di pratica (tasse governative)</td>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td>Marca da bollo e diritti</td>
+                                    <td>100-120</td>
+                                </tr>
+                                <tr class="table-active">
+                                    <td><strong>Totale approssimativo</strong></td>
+                                    <td><strong>700-1100</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p class="small text-muted mt-2">* I prezzi sono indicativi e possono variare significativamente a seconda della zona geografica e della scuola guida scelta.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <h3>Tempi Medi</h3>
+                        <p>Il tempo necessario per ottenere la patente B varia in base a diversi fattori:</p>
+                        
+                        <div class="card bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Tempistiche Indicative</h5>
+                                <ul class="card-text">
+                                    <li><strong>Iscrizione e pratiche iniziali</strong>: 1-2 settimane</li>
+                                    <li><strong>Corso teorico</strong>: 1-2 mesi</li>
+                                    <li><strong>Attesa esame teoria</strong>: 1-2 mesi</li>
+                                    <li><strong>Guide pratiche</strong>: 1-3 mesi</li>
+                                    <li><strong>Attesa esame pratico</strong>: 1-3 mesi</li>
+                                </ul>
+                                <p class="mb-0"><strong>Tempo totale stimato</strong>: 4-10 mesi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <h4><i class="fas fa-info-circle me-2"></i>Consigli utili</h4>
+                            <ol>
+                                <li>Inizia a studiare la teoria il prima possibile</li>
+                                <li>Utilizza app e siti web per esercitarti sui quiz</li>
+                                <li>Frequenta regolarmente le lezioni di teoria</li>
+                                <li>Prendi appunti durante le lezioni</li>
+                                <li>Pianifica le guide pratiche in diverse condizioni di traffico</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Educazione Stradale - 4^A INF</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Realizzato per l'educazione alla sicurezza stradale</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
