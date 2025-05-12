@@ -17,6 +17,7 @@ function cercaAutoscuole() {
     const indirizzo = document.getElementById("indirizzo").value || "Parma";
 
     // Geocodifica con Nominatim per ottenere le coordinate di una città
+    if (indirizzo == "Parma" || indirizzo == "parma") indirizzo = "Parma, pr";
     fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${indirizzo}`)
         .then(response => response.json())
         .then(data => {
