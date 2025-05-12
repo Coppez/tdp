@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educazione Stradale</title>
+    <title>Introduzione all'Educazione Stradale</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Aggiungi il CSS di Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Aggiungi Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="index.js"></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <nav class="titolo">
+        <header>
+            <h1>Educazione Stradale: Sicurezza e Comportamento</h1>
+        </header>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="teoria.html">Teoria</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="introduzione">
+            <h2>Cos'è l'Educazione Stradale?</h2>
+            <p>L’educazione stradale rappresenta un percorso formativo essenziale per la crescita civica e personale dei giovani...</p>
+        </section>
+
+        <section class="introduzione">
+            <h2>L'autoscuola più vicina a te?</h2>
+            <p>Usa la mappa sottostante per trovare l'autoscuola più vicina alla tua posizione.</p>
+            
+            <div>
+                <input type="text" id="indirizzo" placeholder="Inserisci la tua città" />
+                <button onclick="cercaAutoscuole()">Cerca Autoscuole</button>
+            </div>
+
+            <div id="map"></div>
+        </section>
+
+        <div>
+            <h2>Hai domande?</h2>
+            <form class="formContatto">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" class="email" placeholder="Inserisci la tua email">
+                </div>
+                <div>
+                    <label for="message">Messaggio</label>
+                    <textarea class="form-control" rows="4" placeholder="Scrivi il tuo messaggio"></textarea>
+                </div>
+                <button type="submit" class="bottoneInvio">Invia</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Progetto 2025 Educazione Stradale - 4^A INF</p>
+    </footer>
+
 </body>
 </html>
