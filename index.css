@@ -27,7 +27,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
   }
   
   nav.titolo header h1 {
@@ -151,7 +151,6 @@
     font-size: 0.95rem;
   }
   
-  /
   @media (max-width: 768px) {
     nav.titolo ul {
       flex-direction: column;
