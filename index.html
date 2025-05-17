@@ -1,79 +1,177 @@
+
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introduzione all'Educazione Stradale</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- Aggiungi il CSS di Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- Aggiungi Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="index.js"></script>
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-    </style>
+    <title>Educazione Stradale: Sicurezza e Comportamento</title>
+    <!-- Bootstrap CSS (Replit theme) -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-    <nav class="titolo">
-        <header>
-            <h1>Educazione Stradale: Sicurezza e Comportamento</h1>
-        </header>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="teoria.html">Teoria</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-car-side me-2"></i>Educazione Stradale
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/teoria.html">Teoria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/quiz.html">Quiz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        <section class="introduzione">
-            <h2>🚦Cos'è l'Educazione Stradale?</h2>
-            <p>L'educazione stradale è un insieme di attività formative finalizzate a sensibilizzare i cittadini, in particolare i più giovani, sui comportamenti corretti da adottare sulla strada. Include la conoscenza delle norme del Codice della Strada, dei segnali stradali e delle buone pratiche per prevenire incidenti. <br>
+        <div class="container mt-5">
+            <!-- Header section -->
+            <header class="text-center mb-5">
+                <h1 class="display-4"><strong>Educazione Stradale: Sicurezza e Comportamento</strong></h1>
+                <p class="lead">Impara le regole della strada per guidare in sicurezza</p>
+            </header>
 
-            In Italia, l'educazione stradale è promossa attraverso iniziative scolastiche, campagne di sensibilizzazione e collaborazioni tra istituzioni pubbliche e private.</p>
-        </section>
-
-        <section class="introduzione">
-            <h2>🎮Innovazione nell'Educazione Stradale</h2>
-            <p>Recentemente, sono state introdotte tecnologie moderne per rendere l'educazione stradale più coinvolgente. Ad esempio, nel 2025, la Polizia Stradale di Reggio Emilia ha utilizzato la realtà aumentata con visori "Oculus" per simulare situazioni di rischio, come la distrazione alla guida o l'uso del cellulare, permettendo agli studenti di vivere esperienze immersive e comprendere meglio le conseguenze dei comportamenti pericolosi </p>
-        </section>
-
-        <section class="introduzione">
-            <h2>L'autoscuola più vicina a te?</h2>
-            <p>Usa la mappa sottostante per trovare l'autoscuola più vicina alla tua posizione.</p>
-            
-            <div>
-                <input type="text" id="indirizzo" placeholder="Inserisci la tua città" />
-                <button onclick="cercaAutoscuole()">Cerca Autoscuole</button>
-            </div>
-
-            <div id="map"></div>
-        </section>
-
-        <div>
-            <h2>Hai domande?</h2>
-            <form class="formContatto">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" class="email" placeholder="Inserisci la tua email">
+            <!-- Introduction Section -->
+            <section id="intro" class="mb-4">
+                <div class="container">
+                    <h2 class="section-header">🚦 Cos'è l'Educazione Stradale?</h2>
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <p>L'educazione stradale è un insieme di attività formative finalizzate a sensibilizzare i cittadini, in particolare i più giovani, sui comportamenti corretti da adottare sulla strada. Include la conoscenza delle norme del Codice della Strada, dei segnali stradali e delle buone pratiche per prevenire incidenti.</p>
+                            <p>In Italia, l'educazione stradale è promossa attraverso iniziative scolastiche, campagne di sensibilizzazione e collaborazioni tra istituzioni pubbliche e private.</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- Image placeholder -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-road mb-2"></i>
+                                <p>Immagine educazione stradale</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label for="message">Messaggio</label>
-                    <textarea class="form-control" rows="4" placeholder="Scrivi il tuo messaggio"></textarea>
+            </section>
+
+            <!-- Innovation Section -->
+            <section id="innovation" class="mb-4">
+                <div class="container">
+                    <h2 class="section-header">🎮 Innovazione nell'Educazione Stradale</h2>
+                    <div class="row align-items-center">
+                        <div class="col-lg-4">
+                            <!-- Image placeholder -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-vr-cardboard mb-2"></i>
+                                <p>Realtà virtuale per l'educazione stradale</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <p>Recentemente, sono state introdotte tecnologie moderne per rendere l'educazione stradale più coinvolgente. Ad esempio, nel 2025, la Polizia Stradale di Reggio Emilia ha utilizzato la realtà aumentata con visori "Oculus" per simulare situazioni di rischio, come la distrazione alla guida o l'uso del cellulare, permettendo agli studenti di vivere esperienze immersive e comprendere meglio le conseguenze dei comportamenti pericolosi.</p>
+                            <div class="alert alert-info">
+                                <i class="fas fa-lightbulb me-2"></i>
+                                <strong>Lo sapevi?</strong> La realtà virtuale può ridurre fino al 40% il tempo necessario per l'apprendimento delle norme stradali rispetto ai metodi tradizionali.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="bottoneInvio">Invia</button>
-            </form>
+            </section>
+
+            <!-- Map Section -->
+            <section id="map-section" class="mb-4">
+                <div class="container">
+                    <h2 class="section-header">🗺️ L'autoscuola più vicina a te?</h2>
+                    <p>Usa la mappa sottostante per trovare l'autoscuola più vicina alla tua posizione.</p>
+                    
+                    <div class="map-controls">
+                        <input type="text" id="indirizzo" class="form-control" placeholder="Inserisci la tua città o indirizzo">
+                        <button onclick="cercaAutoscuole()" class="btn btn-primary">
+                            <i class="fas fa-search me-2"></i>Cerca Autoscuole
+                        </button>
+                    </div>
+                    
+                    <!-- Map message display -->
+                    <div id="map-message" class="alert alert-info"></div>
+                    
+                    <!-- Map container -->
+                    <div id="map"></div>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section id="contatto" class="mb-4">
+                <div class="container">
+                    <h2 class="section-header">✉️ Hai domande?</h2>
+                    
+                    <!-- Message display for form feedback -->
+                    <div id="form-message" class="alert" style="display: none;"></div>
+                    
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <form id="contact-form">
+                                <div class="form-group mb-3">
+                                    <label for="message" class="form-label">Messaggio</label>
+                                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Scrivi il tuo messaggio"></textarea>
+                                    <div id="message-error" class="form-text text-danger"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-2"></i>Invia
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-info-circle me-2"></i>Informazioni di contatto
+                                </div>
+                                <div class="card-body">
+                                    <p>Per qualsiasi domanda o chiarimento sull'educazione stradale, compilate il form o contattate direttamente:</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-envelope me-2"></i>educazionestradale.info@gmail.com</li>
+                                        <li><i class="fas fa-clock me-2"></i> Risposta entro 48 ore</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; Progetto 2025 Educazione Stradale - 4^A INF</p>
+        <div class="container">
+            <p>&copy; Progetto 2025 Educazione Stradale - 4^A INF</p>
+            <div class="mt-2">
+                <a href="#" class="btn btn-sm btn-outline-light me-2">Privacy Policy</a>
+                <a href="#" class="btn btn-sm btn-outline-light">Cookie Policy</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Custom JS -->
+    <script src="/index.js"></script>
+    <script src="/form.js"></script>
 </body>
 </html>
