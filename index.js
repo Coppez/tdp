@@ -13,14 +13,17 @@ function initMap() {
 }
 
 // Funzione per cercare autoscuole nelle vicinanze
-function cercaAutoscuole() {
+async function cercaAutoscuole() {
     const indirizzo = document.getElementById("indirizzo").value || "Parma";
+
+    caricamento.style.display = "block";
+    caricamento.innerHTML = "<span>Caricamento...</span>";
 
     // Geocodifica con Nominatim per ottenere le coordinate di una città
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${indirizzo}`)
+    await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${indirizzo}`)
         .then(response => response.json())
-        .then(data => {
+        .then(async data => {
             if (data && data[0]) {
                 const lat = data[0].lat;
                 const lon = data[0].lon;
@@ -29,7 +32,7 @@ function cercaAutoscuole() {
                 map.setView([lat, lon], 12);
 
                 // Ricerca delle autoscuole nelle vicinanze usando Overpass API
-                fetch(`https://overpass-api.de/api/interpreter?data=[out:json];(node["amenity"="driving_school"](around:10000,${lat},${lon});way["amenity"="driving_school"](around:10000,${lat},${lon});relation["amenity"="driving_school"](around:10000,${lat},${lon}););out center;`)
+                await fetch(`https://overpass-api.de/api/interpreter?data=[out:json];(node["amenity"="driving_school"](around:10000,${lat},${lon});way["amenity"="driving_school"](around:10000,${lat},${lon});relation["amenity"="driving_school"](around:10000,${lat},${lon}););out center;`)
                     .then(response => response.json())
                     .then(data => {
                         if (data && data.elements) {
@@ -49,20 +52,43 @@ function cercaAutoscuole() {
                             });
                         } else {
                             alert("Nessuna autoscuola trovata nelle vicinanze.");
+                            caricamento.style.color = "red";
+                            caricamento.style.borderColor = "red";
+                            caricamento.innerHTML = "Nessuna autoscuola trovata";
                         }
+                        if (markers.length != 0) {
+                            caricamento.style.color = "green";
+                            caricamento.style.borderColor = "green";
+                            caricamento.innerHTML = `Trovate: ${markers.length} Autoscuole`;
+                        } else {
+                            caricamento.style.color = "red";
+                            caricamento.style.borderColor = "red";
+                            caricamento.innerHTML = "Nessuna autoscuola trovata";
+                        }
+                        
                     })
                     .catch(error => {
                         console.error("Errore nell'ottenere dati dalle API:", error);
-                        alert("Errore nella ricerca delle autoscuole.");
+                        caricamento.style.color = "red";
+                        caricamento.style.borderColor = "red";
+                        caricamento.innerHTML = "Nessuna autoscuola trovata";
                     });
             } else {
                 alert("Indirizzo non trovato.");
+                caricamento.style.color = "red";
+                caricamento.style.borderColor = "red";
+                caricamento.innerHTML = "Nessuna autoscuola trovata";
             }
         })
         .catch(error => {
             console.error("Errore nella geocodifica:", error);
             alert("Errore nella geocodifica dell'indirizzo.");
+            caricamento.style.color = "red";
+            caricamento.style.borderColor = "red";
+            caricamento.innerHTML = "Nessuna autoscuola trovata";
         });
-}
 
+}
+const caricamento = document.getElementById("map-message");
+caricamento.style.display = "none";
 window.onload = initMap;
