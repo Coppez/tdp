@@ -14,7 +14,7 @@ function initMap() {
 
 // Funzione per cercare autoscuole nelle vicinanze
 async function cercaAutoscuole() {
-    const indirizzo = document.getElementById("indirizzo").value || "Parma";
+    const indirizzo = document.getElementById("indirizzo").value || "Parma Pr";
 
     caricamento.style.display = "block";
     caricamento.innerHTML = "<span>Caricamento...</span>";
@@ -50,11 +50,6 @@ async function cercaAutoscuole() {
                                     .bindPopup(`<b>${name}</b><br>Lat: ${autoLat}, Lon: ${autoLon}`);
                                 markers.push(marker);
                             });
-                        } else {
-                            alert("Nessuna autoscuola trovata nelle vicinanze.");
-                            caricamento.style.color = "red";
-                            caricamento.style.borderColor = "red";
-                            caricamento.innerHTML = "Nessuna autoscuola trovata";
                         }
                         if (markers.length != 0) {
                             caricamento.style.color = "green";
@@ -74,7 +69,6 @@ async function cercaAutoscuole() {
                         caricamento.innerHTML = "Nessuna autoscuola trovata";
                     });
             } else {
-                alert("Indirizzo non trovato.");
                 caricamento.style.color = "red";
                 caricamento.style.borderColor = "red";
                 caricamento.innerHTML = "Nessuna autoscuola trovata";
