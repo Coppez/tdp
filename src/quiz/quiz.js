@@ -165,8 +165,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
       feedbackElement.innerHTML = `<i class="fas fa-times-circle"></i> Risposta errata! La risposta corretta è: ${esito.rispostaCorretta ? 'Vero' : 'Falso'}`;
       feedbackElement.className = 'quiz-feedback quiz-incorrect';
+      
     }
-    
+
+    document.querySelectorAll('input[name="quiz-option"]').forEach(option => {
+        option.disabled = true;
+      });
     nextButton.disabled = false;
   }
   
@@ -179,10 +183,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const altreDisponibili = quizApp.passaAllaProssimaDomanda();
     
     if (altreDisponibili) {
-      mostraDomanda();
-      nextButton.disabled = true;
+        document.querySelectorAll('input[name="quiz-option"]').forEach(option => {
+            option.disabled = true;
+            });
+        mostraDomanda();
+        nextButton.disabled = true;
     } else {
-      mostraRisultati();
+        mostraRisultati();
     }
   }
 
