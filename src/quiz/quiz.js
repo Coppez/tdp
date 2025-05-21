@@ -9,6 +9,7 @@ class Quiz {
     this.risposteCorretteCount = 0;
     this.inizializzato = false;
     this.domandaCorrente = null;
+    this.baseImagePath = "";
   }
 
   async inizializza() {
@@ -110,9 +111,34 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     questionElement.textContent = domandaCorrente.q;
 
+    // Gestione migliorata delle immagini
     if (domandaCorrente.img) {
-      imageContainer.innerHTML = `<img src="${domandaCorrente.img}" alt="Immagine domanda" class="img-fluid">`;
-      imageContainer.classList.remove('d-none');
+      // Verifica se l'URL dell'immagine è valido
+      const imgUrl = domandaCorrente.img;
+      
+      // Crea un elemento immagine con gestione degli errori
+      imageContainer.innerHTML = '';
+      const imgElement = document.createElement('img');
+      imgElement.src = imgUrl;
+      imgElement.alt = "Immagine domanda";
+      imgElement.className = "img-fluid";
+      
+      // Gestione degli errori di caricamento dell'immagine
+      imgElement.onerror = function() {
+        console.error(`Errore nel caricamento dell'immagine: ${imgUrl}`);
+        imageContainer.innerHTML = `
+          <div class="image-placeholder">
+            <i class="fas fa-image"></i>
+            <p>Immagine non disponibile</p>
+          </div>
+        `;
+      };
+
+      imgElement.onload = function() {
+        imageContainer.classList.remove('d-none');
+      };
+      
+      imageContainer.appendChild(imgElement);
     } else {
       imageContainer.innerHTML = '';
       imageContainer.classList.add('d-none');
@@ -245,6 +271,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     mostraDomanda();
     nextButton.disabled = true;
   } catch (error) {
+    console.error("Errore durante l'inizializzazione del quiz:", error);
     loadingElement.innerHTML = `
       <div class="alert alert-danger">
         <p>Errore nel caricamento del quiz. Riprova più tardi.</p>
