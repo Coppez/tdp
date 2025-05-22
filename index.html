@@ -1,17 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="it" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educazione Stradale: Sicurezza e Comportamento</title>
-    <!-- Bootstrap CSS (Replit theme) -->
     <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -28,13 +23,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/index.html">Home</a>
+                            <a class="nav-link active" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/teoria.html">Teoria</a>
+                            <a class="nav-link" href="src/teoria/teoria.html">Teoria</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/quiz.html">Quiz</a>
+                            <a class="nav-link" href="src/quiz/quiz.html">Quiz</a>
                         </li>
                     </ul>
                 </div>
@@ -44,13 +39,11 @@
 
     <main>
         <div class="container mt-5">
-            <!-- Header section -->
             <header class="text-center mb-5">
                 <h1 class="display-4"><strong>Educazione Stradale: Sicurezza e Comportamento</strong></h1>
                 <p class="lead">Impara le regole della strada per guidare in sicurezza</p>
             </header>
 
-            <!-- Introduction Section -->
             <section id="intro" class="mb-4">
                 <div class="container">
                     <h2 class="section-header">🚦 Cos'è l'Educazione Stradale?</h2>
@@ -60,10 +53,10 @@
                             <p>In Italia, l'educazione stradale è promossa attraverso iniziative scolastiche, campagne di sensibilizzazione e collaborazioni tra istituzioni pubbliche e private.</p>
                         </div>
                         <div class="col-lg-4">
-                            <!-- Image placeholder -->
                             <div class="image-placeholder">
-                                <i class="fas fa-road mb-2"></i>
-                                <p>Immagine educazione stradale</p>
+                                <figure class="text-center">
+                                    <img src="/immagini/Castel-d-Azzano-oggi-prove-pratiche-di-sicurezza-stradale-58d7645b8d2bc4.jpg" class="img-fluid">
+                                </figure>
                             </div>
                         </div>
                     </div>
@@ -78,8 +71,9 @@
                         <div class="col-lg-4">
                             <!-- Image placeholder -->
                             <div class="image-placeholder">
-                                <i class="fas fa-vr-cardboard mb-2"></i>
-                                <p>Realtà virtuale per l'educazione stradale</p>
+                                <figure class="text-center">
+                                    <img src="/immagini/emotives.jpg" class="img-fluid">
+                                </figure>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -140,7 +134,7 @@
                                 <div class="card-header">
                                     <i class="fas fa-info-circle me-2"></i>Informazioni di contatto
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" id="contatti">
                                     <p>Per qualsiasi domanda o chiarimento sull'educazione stradale, compilate il form o contattate direttamente:</p>
                                     <ul class="list-unstyled">
                                         <li><i class="fas fa-envelope me-2"></i>educazionestradale.info@gmail.com</li>
