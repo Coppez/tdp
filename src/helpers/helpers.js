@@ -13,12 +13,12 @@ export async function getDomande(link = 'https://raw.githubusercontent.com/Ed0ar
 export function getDomandaCasuale(data) {
     const categories = Object.values(data)[0];
     const categoryKeys = Object.keys(categories);
-  
+
     const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)];
     const questions = categories[randomCategoryKey];
-  
+
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-  
+
     let imgPath = null;
     if (randomQuestion.img) {
         imgPath = randomQuestion.img;
@@ -31,13 +31,13 @@ export function getDomandaCasuale(data) {
             imgPath = `${BASE_IMAGE_URL}/${imgPath}`;
         }
     }
-  
+
     return {
-      img: imgPath,
-      q: randomQuestion.q,
-      a: randomQuestion.a
+        img: imgPath,
+        q: randomQuestion.q,
+        a: randomQuestion.a
     };
-  }
+    }
 
 export async function verifyImageUrl(url) {
     if (!url) return false;
