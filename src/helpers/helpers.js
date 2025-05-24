@@ -44,7 +44,6 @@ export async function verifyImageUrl(url) {
     
     try {
         const response = await fetch(url, { method: 'HEAD' });
-        console.log("ok");
         return response.ok;
     } catch (error) {
         console.error(`Errore nel verificare l'URL dell'immagine ${url}:`, error);
