@@ -17,9 +17,13 @@ class Quiz {
       this.domande = await getDomande();
 
       for(let i = 0; i < 30; i++) {
-        this.domandeQuiz.push(getDomandaCasuale(this.domande));
+        let domanda = getDomandaCasuale(this.domande)
+        if (this.domandeQuiz.includes(domanda)) {
+          continue;
+        }
+        this.domandeQuiz.push(domanda);
       }
-      
+      console.log(this.domandeQuiz);
       this.domandaCorrente = this.domandeQuiz[0];
       this.inizializzato = true;
       
