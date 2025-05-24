@@ -84,5 +84,7 @@ async function cercaAutoscuole() {
 
 }
 const caricamento = document.getElementById("map-message");
+const btnAutoscuole = document.getElementById("btnAutoscuole");
+btnAutoscuole.addEventListener("click",cercaAutoscuole);
 caricamento.style.display = "none";
 window.onload = initMap;
